@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surge — Live Volume Scanner</title>
+  <meta name="description" content="Live crypto volume scanner: FOMO-style momentum ranking and Telegram alerts. Monitoring only — no trading." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">◈</span>
+        <div class="brand-text">
+          <span class="brand-name">SURGE</span>
+          <span class="brand-tag">Live Volume Scanner</span>
+        </div>
+      </div>
+
+      <div class="status-cluster">
+        <div class="status-chip" id="connChip">
+          <span class="conn-dot" id="connDot"></span>
+          <span id="connText">Connecting…</span>
+        </div>
+        <div class="status-chip mode-chip" id="modeChip">
+          <span id="modeBadge">—</span>
+        </div>
+        <div class="status-chip">
+          <span class="chip-label">Last update</span>
+          <span id="lastUpdate" class="mono">—</span>
+        </div>
+        <div class="status-chip">
+          <span class="chip-label">Monitoring</span>
+          <span id="tokenCount" class="mono">0 tokens</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="filters-panel" id="filtersPanel" aria-label="Filters"></aside>
+
+      <main class="main-panel">
+        <div class="table-toolbar">
+          <div class="table-toolbar-title">Volume Scanner <span id="visibleCount" class="mono muted"></span></div>
+          <div class="table-hint">Click a row for live chart + full token detail</div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="token-table">
+            <thead id="tokenTableHead"></thead>
+            <tbody id="tokenTableBody"></tbody>
+          </table>
+        </div>
+      </main>
+
+      <aside class="alerts-panel" aria-label="Recent alerts">
+        <h3>Recent Alerts</h3>
+        <div id="alertsFeed" class="alerts-feed">
+          <div class="alerts-empty">No alerts fired yet.</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="app-footer">
+      Monitoring &amp; analytics only — SURGE never trades, connects a wallet, or moves funds.
+    </footer>
+  </div>
+
+  <div class="detail-panel" id="detailPanel" hidden></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
